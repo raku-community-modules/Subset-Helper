@@ -4,7 +4,7 @@
     "version"      : "1.001001",
     "description"  : "create awesome subsets",
     "depends"      : [ ],
-    "test-depends" : [ "Test" ],
+    "test-depends" : [ "Test", "Test::Output" ],
     "provides"     : {
         "Subset::Helper" : "lib/Subset/Helper.pm6"
     },
