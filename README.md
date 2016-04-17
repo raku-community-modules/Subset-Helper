@@ -18,11 +18,11 @@ Subset::Helper - create awesome subsets
 
 # DESCRIPTION
 
-This module solves two inconviniences with Perl 6's `subset`s:
+This module solves two inconviniences with Perl 6's subsets:
 
     1) Display of useful error messages when type check fails
     2) Avoid evaluating subset's condition for `Any` values,
-        which is happens with optional parameters
+        which is what happens with optional parameters
 
 # EXPORTED SUBROUTINES
 
@@ -32,8 +32,8 @@ This module solves two inconviniences with Perl 6's `subset`s:
     subset Positive of Int where subset-is * > 0;
 
     subset RoverCam of Str where subset-is
-        { $_ ∈ set <MAST CHEMCAM FHAZ RHAZ },
-        'Valid cameras are <MAST CHEMCAM FHAZ RHAZ>';
+        { $_ ∈ set <MAST CHEMCAM FHAZ RHAZ> },
+        'Valid cameras are MAST, CHEMCAM, FHAZ, and RHAZ';
 ```
 
 Takes one mandatory positional argument, which is the
