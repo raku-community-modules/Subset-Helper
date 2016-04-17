@@ -9,8 +9,8 @@ Subset::Helper - create awesome subsets
 ```perl6
     use Subset::Helper;
 
-    subset Positive of Int where subset-is
-        * > 0, 'Value must be above zero';
+    subset Positive of Int
+        where subset-is * > 0, 'Value must be above zero';
 
     my Positive $x = 42; # success
     my Positive $x = -2; # Fails with 'Value must be above zero';
