@@ -46,6 +46,13 @@ make it possible to cleanly define subsets for optional
 parameters, for which the type check is still called, even
 when they aren't provided in the sub/method calls.
 
+# CONFUSING ERRORS
+
+You can't declare our scoped subsets within roles. If you're
+using this module, however, that error will instead point
+to the end of the declaration, saying `expecting any of: postfix`.
+Simply prefix your subset with `my`
+
 # BUGS AND LIMITATIONS
 
 Rakudo may evaluate whether a value matches the subset TWICE:
