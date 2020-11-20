@@ -6,7 +6,7 @@ Subset::Helper - create awesome subsets
 
 # SYNOPSIS
 
-```perl6
+```raku
     use Subset::Helper;
 
     subset Positive of Int
@@ -28,7 +28,7 @@ This module solves two inconviniences with Perl 6's subsets:
 
 ## `subset-is`
 
-```perl6
+```raku
     subset Positive of Int where subset-is * > 0;
 
     subset RoverCam of Str where subset-is
@@ -67,12 +67,12 @@ Patches to fix this are welcome.
 # REPOSITORY
 
 Fork this module on GitHub:
-https://github.com/zoffixznet/perl6-Subset-Helper
+https://github.com/raku-community-modules/Subset-Helper
 
 # BUGS
 
 To report bugs or request features, please use
-https://github.com/zoffixznet/perl6-Subset-Helper/issues
+https://github.com/raku-community-modules/Subset-Helper/issues
 
 # AUTHOR
 
