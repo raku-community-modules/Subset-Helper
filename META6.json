@@ -10,5 +10,5 @@
         "Subset::Helper" : "lib/Subset/Helper.pm6"
     },
     "authors"      : [ "Zoffix Znet" ],
-    "source-url"   : "git://github.com/zoffixznet/perl6-Subset-Helper.git"
+    "source-url"   : "git://github.com/raku-community-modules/Subset-Helper.git"
 }
