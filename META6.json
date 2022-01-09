@@ -1,14 +1,22 @@
 {
-    "perl"         : "6.c",
-    "name"         : "Subset::Helper",
-    "license"      : "Artistic-2.0",
-    "version"      : "1.001001",
-    "description"  : "create awesome subsets",
-    "depends"      : [ ],
-    "test-depends" : [ "Test", "Test::Output" ],
-    "provides"     : {
-        "Subset::Helper" : "lib/Subset/Helper.pm6"
-    },
-    "authors"      : [ "Zoffix Znet" ],
-    "source-url"   : "git://github.com/raku-community-modules/Subset-Helper.git"
+  "name": "Subset::Helper",
+  "description": "create awesome subsets",
+  "version": "1.001001",
+  "perl": "6.c",
+  "authors": [
+    "Zoffix Znet"
+  ],
+  "depends": [],
+  "test-depends": [
+    "Test",
+    "Test::Output"
+  ],
+  "provides": {
+    "Subset::Helper": "lib/Subset/Helper.pm6"
+  },
+  "resources": [
+    "examples/subset.p6"
+  ],
+  "license": "Artistic-2.0",
+  "source-url": "git://github.com/raku-community-modules/Subset-Helper.git"
 }
