@@ -1,4 +1,4 @@
-# NAME
+# NAME [![Tests on source](https://github.com/raku-community-modules/Subset-Helper/actions/workflows/test.yaml/badge.svg)](https://github.com/raku-community-modules/Subset-Helper/actions/workflows/test.yaml)
 
 Subset::Helper - create awesome subsets
 

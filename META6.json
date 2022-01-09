@@ -1,11 +1,12 @@
 {
   "name": "Subset::Helper",
   "description": "create awesome subsets",
-  "version": "1.001001",
+  "version": "1.001002",
   "perl": "6.c",
   "authors": [
     "Zoffix Znet"
   ],
+  "auth": "zef:raku-community-modules",
   "depends": [],
   "test-depends": [
     "Test",

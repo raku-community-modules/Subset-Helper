@@ -1,4 +1,8 @@
-Revision History for 'Subset::Helper' Perl 6 Distribution
+Revision History for 'Subset::Helper' Raku Distribution
+
+1.001002  2022-01-9
+  - 6 years later, small improvements addressing issues and release to zef
+  ecosystem
 
 1.001001  2016-04-16
   - First version released on an unsuspecting world
