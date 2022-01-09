@@ -1,5 +1,3 @@
-[![Build Status](https://travis-ci.org/zoffixznet/perl6-Subset-Helper.svg)](https://travis-ci.org/zoffixznet/perl6-Subset-Helper)
-
 # NAME
 
 Subset::Helper - create awesome subsets
@@ -18,7 +16,7 @@ Subset::Helper - create awesome subsets
 
 # DESCRIPTION
 
-This module solves two inconviniences with Perl 6's subsets:
+This module solves two inconveniences with Perl 6's subsets:
 
     1) Display of useful error messages when type check fails
     2) Avoid evaluating subset's condition for `Any` values,
