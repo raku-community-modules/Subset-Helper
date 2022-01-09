@@ -21,16 +21,14 @@ lives-ok { whatever 42 }, 'WhateverCode with no message and valid value';
 dies-ok { whatever -20 }, 'WhateverCode with no message and invalid value';
 
 lives-ok { whatever-message 42 }, 'WhateverCode with message and valid value';
-output-like { whatever-message -20; CATCH { default { } } },
-    /'Must be positive'/,
+dies-ok { whatever-message -20 },
     'WhateverCode with message and invalid value';
 
 lives-ok { block 42 }, 'block with no message and valid value';
 dies-ok { block -20 }, 'block with no message and invalid value';
 
 lives-ok { block-message 42 }, 'block with message and valid value';
-output-like { block-message -20; CATCH { default { } } },
-    /'Must be positive'/,
+dies-ok { block-message -20 },
     'block with message and invalid value';
     
 done-testing;
