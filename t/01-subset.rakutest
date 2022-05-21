@@ -1,7 +1,8 @@
-use lib 'lib';
 use Test;
 use Test::Output;
 use Subset::Helper;
+
+plan 8;
 
 subset WhateverCodeNoMessage of Int
     where subset-is * > 10;
@@ -31,4 +32,4 @@ lives-ok { block-message 42 }, 'block with message and valid value';
 dies-ok { block-message -20 },
     'block with message and invalid value';
     
-done-testing;
+# vim: expandtab shiftwidth=4

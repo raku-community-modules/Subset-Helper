@@ -1,83 +1,97 @@
-# NAME [![Tests on source](https://github.com/raku-community-modules/Subset-Helper/actions/workflows/test.yaml/badge.svg)](https://github.com/raku-community-modules/Subset-Helper/actions/workflows/test.yaml)
+[![Actions Status](https://github.com/raku-community-modules/Subset-Helper/actions/workflows/test.yml/badge.svg)](https://github.com/raku-community-modules/Subset-Helper/actions)
+
+NAME
+====
 
 Subset::Helper - create awesome subsets
 
-# SYNOPSIS
+SYNOPSIS
+========
 
 ```raku
-    use Subset::Helper;
+use Subset::Helper;
 
-    subset Positive of Int
-        where subset-is * > 0, 'Value must be above zero';
+subset Positive of Int
+    where subset-is * > 0, 'Value must be above zero';
 
-    my Positive $x = 42; # success
-    my Positive $x = -2; # Fails with 'Value must be above zero';
+my Positive $x = 42; # success
+my Positive $x = -2; # Fails with 'Value must be above zero';
 ```
 
-# DESCRIPTION
+DESCRIPTION
+===========
 
-This module solves two inconveniences with Perl 6's subsets:
+This module solves two inconveniences with Raku's subsets:
 
-    1) Display of useful error messages when type check fails
-    2) Avoid evaluating subset's condition for `Any` values,
-        which is what happens with optional parameters
+  * Display of useful error messages when type check fails
 
-# EXPORTED SUBROUTINES
+  * Avoid evaluating subset's condition for `Any` values, which is what happens with optional parameters.
 
-## `subset-is`
+EXPORTED SUBROUTINES
+====================
+
+subset-is
+---------
+
+**NOTE**: This functionality broke sometime since 2017 as the returned `Failure` for non-matching is somehow ignored, and the message specified will never be displayed. Sadly, this was not picked up by the tests, as these only checked for throwing **an** exception, not whether the exception was correctly worded.
+
+Since the 2022.04 release of Rakudo, one can use the `will complain` trait instead:
 
 ```raku
-    subset Positive of Int where subset-is * > 0;
+use experimental :will-complain;  # this may become unnecessary
 
-    subset RoverCam of Str where subset-is
-        { $_ ∈ set <MAST CHEMCAM FHAZ RHAZ> },
-        'Valid cameras are MAST, CHEMCAM, FHAZ, and RHAZ';
+subset Positive of Int:D
+  will complain { "need a positive integer, got: $_" }
+  where * > 0;
+
+my Positive $a = -2;
+# Type check failed in assignment to $a; Need a positive integer, got: -2
+
+my str @cameras = <MAST CHEMCAM FHAZ RHAZ>;
+subset RoverCam of Str:D
+  will complain { "valid cameras are: @cameras[]" }
+  where * ∈ @cameras;
 ```
 
-Takes one mandatory positional argument, which is the
-code to execute to check the validity of value, and an
-optional descriptive error message to show when the value
-doesn't match the subset.
+The original documentation:
 
-Note: undefined values are accepted by the subset.
-This exists to make it possible to cleanly define subsets
-for optional parameters, for which the type check is still
-called, even when they aren't provided in the sub/method calls.
+```raku
+subset Positive of Int where subset-is * > 0;
 
-# CONFUSING ERRORS
+subset RoverCam of Str where subset-is
+  { $_ ∈ set <MAST CHEMCAM FHAZ RHAZ> },
+  'Valid cameras are MAST, CHEMCAM, FHAZ, and RHAZ';
+```
 
-You can't declare our scoped subsets within roles. If you're
-using this module, however, that error will instead point
-to the end of the declaration, saying `expecting any of: postfix`.
-Simply prefix your subset with `my`
+Takes one mandatory positional argument, which is the code to execute to check the validity of value, and an optional descriptive error message to show when the value doesn't match the subset.
 
-# BUGS AND LIMITATIONS
+Note: undefined values are accepted by the subset. This exists to make it possible to cleanly define subsets for optional parameters, for which the type check is still called, even when they aren't provided in the sub/method calls.
 
-Rakudo may evaluate whether a value matches the subset TWICE:
-once to check the match and once to get sensible error information.
+CONFUSING ERRORS
+================
+
+You can't declare our scoped subsets within roles. If you're using this module, however, that error will instead point to the end of the declaration, saying `expecting any of: postfix`. Simply prefix your subset with `my`.
+
+BUGS AND LIMITATIONS
+====================
+
+Rakudo may evaluate whether a value matches the subset TWICE: once to check the match and once to get sensible error information.
 
 Thus, currently the error message you provide is printed twice.
 
 Patches to fix this are welcome.
 
-----
+AUTHOR
+======
 
-# REPOSITORY
+Zoffix Znet
 
-Fork this module on GitHub:
-https://github.com/raku-community-modules/Subset-Helper
+COPYRIGHT AND LICENSE
+=====================
 
-# BUGS
+Copyright 2016 - 2017 Zoffix Znet
 
-To report bugs or request features, please use
-https://github.com/raku-community-modules/Subset-Helper/issues
+Copyright 2018 - 2022 Raku Community
 
-# AUTHOR
+This library is free software; you can redistribute it and/or modify it under the Artistic License 2.0.
 
-Zoffix Znet (http://zoffix.com/)
-
-# LICENSE
-
-You can use and distribute this module under the terms of the
-The Artistic License 2.0. See the `LICENSE` file included in this
-distribution for complete details.

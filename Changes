@@ -1,8 +1,13 @@
-Revision History for 'Subset::Helper' Raku Distribution
+Revision history for Subset-Helper
 
-1.001002  2022-01-9
-  - 6 years later, small improvements addressing issues and release to zef
-  ecosystem
+{{$NEXT}}
+    - Add note that "where-is" doesn't work as advertised and that
+      "will complain" provides similar functionality
+    - Make App::Mi6able
+
+1.001002  2022-01-09
+    - 6 years later, small improvements addressing issues and release
+      to zef ecosystem
 
 1.001001  2016-04-16
-  - First version released on an unsuspecting world
+    - First version released on an unsuspecting world
